@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Security: CloudTrail across all regions'
+
+Resources:
+  CloudTrailBucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties: 
+      BucketName: !Join
+                    - '-'
+                    - - 'cloudtrail'
+                      - !Ref "AWS::AccountId"
+
+
+      
